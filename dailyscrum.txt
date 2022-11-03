@@ -1,0 +1,256 @@
+DAILY SCRUM - EVERY DAY AT 9AM (as soon as  you arrive)
+==========================================================
+
+In your shared Git repository create file "dailyscrum.txt".
+Both members of the team will write to this one file every morning at 9am.
+
+Each member writes down answers to 3 questions in the following format:
+
+<< current date goes here >>
+1. What I have done / not done since last Scrum?
+2. What I plan to do from this scrum to next? (next 24 hours)
+3. Where do I need assistance? What do I need to figure out?
+
+
+2022/11/02 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/02 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/02 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/03 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/03 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/03 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/04 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/04 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/04 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/05 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/05 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/05 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/06 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/06 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/06 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/07 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/07 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/07 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/08 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/08 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/08 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/09 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/09 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/09 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/10 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/10 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/10 Myrzagul
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
