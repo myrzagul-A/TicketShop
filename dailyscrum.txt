@@ -33,11 +33,14 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/02 Myrzagul
 ===================
 1. Done / not done since last scrum:
-    
+   Researched about MVC projects 
+   Created a git repository, trello board and an empty MVC project
+   Looked for tutorials on MVC projects  
 2. To do until next Scrum:
-    
+   Learn about scaffolding and implement it in the project
+   Assist in setting up the database 
 3. Need assistance / figure things out
-
+   connecting azure sql db with the project
 
 2022/11/03 Liutsiia
 ===================
@@ -60,11 +63,13 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/03 Myrzagul
 ===================
 1. Done / not done since last scrum:
-    
+   Assisted in connecting the db to the project
+   Used scaffolding for creating models based on db
+   Tried/tested scaffolding for creating crud for users model   
 2. To do until next Scrum:
-    
+   Add crud for other models where necessary 
 3. Need assistance / figure things out
-
+   routing/views	
 
 2022/11/04 Liutsiia
 ===================
