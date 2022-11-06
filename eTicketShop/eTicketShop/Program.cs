@@ -7,7 +7,7 @@ var connectionString = builder.Configuration.GetConnectionString("TicketShopDB2C
 builder.Services.AddDbContext<TicketShopDB2Context>(options =>
     options.UseSqlServer(connectionString));
 
-builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = true)
+builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddEntityFrameworkStores<TicketShopDB2Context>();
 
 // Add services to the container.
