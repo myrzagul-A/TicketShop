@@ -15,11 +15,14 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/02 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+    Find necessary tutorials
+    Decided about project structure
+    git repository
 2. To do until next Scrum:
-    
+    Worked on the tables in the database and their relationships
+    Work on create account
 3. Need assistance / figure things out
-   
+    join tables
 
 2022/11/02 Oxana
 ===================
@@ -45,11 +48,16 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/03 Liutsiia
 ===================
 1. Done / not done since last scrum:
+    Worked on the tables in the database and their relationships
+    Work on create
+    Start working /login/logout
     
 2. To do until next Scrum:
+    List of users
+    Edit user
     
 3. Need assistance / figure things out
-   
+   roles
 
 2022/11/03 Oxana
 ===================
@@ -74,11 +82,14 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/04 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+    List of users
+    Edit user
+    learn about roles
 2. To do until next Scrum:
-    
+    Learn about Creating a custom roles
+    start working on roles
 3. Need assistance / figure things out
-   
+   need assistance with roles
 
 2022/11/04 Oxana
 ===================
