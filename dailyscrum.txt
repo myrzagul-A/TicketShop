@@ -27,10 +27,13 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/02 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+	project proposal
 2. To do until next Scrum:
-    
+	create SQL DB on Azure
+     create DB schema    
 3. Need assistance / figure things out
+	MVC or Razor
+	Code-first or DB-first
 
 
 2022/11/02 Myrzagul
@@ -62,9 +65,11 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/03 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+    create SQL DB on Azure
+     create DB schema
 2. To do until next Scrum:
-    
+    create model
+	learn about Scaffolding
 3. Need assistance / figure things out
 
 
@@ -94,10 +99,11 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/04 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+    created model
 2. To do until next Scrum:
-    
+    adding migration 
 3. Need assistance / figure things out
+
 
 
 2022/11/04 Myrzagul
@@ -121,9 +127,9 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/05 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+    adding first migration 
 2. To do until next Scrum:
-    
+    CRUD categories/events
 3. Need assistance / figure things out
 
 
