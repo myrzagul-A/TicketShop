@@ -20,11 +20,12 @@ namespace eTicketShop.Controllers
         }
 
         // GET: Events
-        public async Task<IActionResult> Index()
+    /*    public async Task<IActionResult> Index()
         {
             var allEvents = _context.Events.Include(c => c.Category);
             return View(allEvents);
         }
+    */
         public async Task<IActionResult> Filter(string searchString)
         {
             var allEvents = _context.Events.Include(n => n.Category);
@@ -60,10 +61,11 @@ namespace eTicketShop.Controllers
             return View(@event);
         }
 
+
         // GET: Events/Create
         public IActionResult Create()
         {
-            ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
+             ViewData["CategoryId"] = new SelectList(_context.Categories, "Id", "Name");
             return View();
         }
 
@@ -178,6 +180,30 @@ namespace eTicketShop.Controllers
         private bool EventExists(int id)
         {
           return _context.Events.Any(e => e.Id == id);
+        }
+
+        public async Task<IActionResult> Index(string categorySlug = "", int p = 1)
+        {
+            int pageSize = 3;
+            ViewBag.PageNumber = p;
+            ViewBag.PageRange = pageSize;
+            ViewBag.CategorySlug = categorySlug;
+
+            if (categorySlug == "")
+            {
+                ViewBag.TotalPages = (int)Math.Ceiling((decimal)_context.Events.Count() / pageSize);
+
+                return View(await _context.Events.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
+            }
+
+
+            Category category = await _context.Categories.Where(c => c.Name == categorySlug).FirstOrDefaultAsync();
+            if (category == null) return RedirectToAction("Index");
+
+            var eventsByCategory = _context.Events.Where(p => p.CategoryId == category.Id);
+            ViewBag.TotalPages = (int)Math.Ceiling((decimal)eventsByCategory.Count() / pageSize);
+
+            return View(await eventsByCategory.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
         }
     }
 }

@@ -4,6 +4,7 @@ using eTicketShop.Areas.Identity.Data;
 using eTicketShop.Core;
 using eTicketShop.Core.Repositories;
 using eTicketShop.Repositories;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("TicketShopDB2ContextConnection") ?? throw new InvalidOperationException("Connection string 'TicketShopDB2ContextConnection' not found.");
@@ -42,6 +43,13 @@ app.UseRouting();
 app.UseAuthentication();;
 
 app.UseAuthorization();
+
+//app.MapControllerRoute(
+//    name: "events",
+//    pattern: "/events/{categorySlug?}",
+//        defaults: new { controller = "Events", action = "Index" }
+//  );
+
 
 app.MapControllerRoute(
     name: "default",
