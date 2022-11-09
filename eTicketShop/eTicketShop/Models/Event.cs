@@ -28,6 +28,7 @@ namespace eTicketShop.Models
 
         [StringLength(250)]
         public string? ImageUrl { get; set; }
+        public byte[]? Image { get; set; }
 
         public Category? Category { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }

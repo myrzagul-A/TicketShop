@@ -156,6 +156,9 @@ namespace eTicketShop.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
 
+                    b.Property<byte[]>("Image")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("ImageUrl")
                         .HasMaxLength(250)
                         .HasColumnType("nvarchar(250)");
