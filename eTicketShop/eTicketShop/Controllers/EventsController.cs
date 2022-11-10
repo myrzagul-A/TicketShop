@@ -74,8 +74,20 @@ namespace eTicketShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl")] Event @event)
+        public async Task<IActionResult> Create([Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl, Image")] Event @event, List<IFormFile> Image)
         {
+            foreach (var item in Image)
+            {
+                if (item.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await item.CopyToAsync(stream);
+                        @event.Image = stream.ToArray();
+                    }
+                }
+            }
+
             if (ModelState.IsValid)
             {
                 _context.Add(@event);
@@ -108,11 +120,23 @@ namespace eTicketShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl")] Event @event)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl, Image")] Event @event, List<IFormFile> Image)
         {
             if (id != @event.Id)
             {
                 return NotFound();
+            }
+
+            foreach (var item in Image)
+            {
+                if (item.Length > 0)
+                {
+                    using (var stream = new MemoryStream())
+                    {
+                        await item.CopyToAsync(stream);
+                        @event.Image = stream.ToArray();
+                    }
+                }
             }
 
             if (ModelState.IsValid)
@@ -203,7 +227,6 @@ namespace eTicketShop.Controllers
 
                 return View(await _context.Events.OrderByDescending(p => p.Id).Skip((p - 1) * pageSize).Take(pageSize).ToListAsync());
             }
-
 
             Category category = await _context.Categories.Where(c => c.Name == categorySlug).FirstOrDefaultAsync();
             if (category == null) return RedirectToAction("Index");
