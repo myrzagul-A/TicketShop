@@ -7,12 +7,21 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eTicketShop.Areas.Identity.Data;
 using eTicketShop.Models;
+using eTicketShop.Data.ViewModels;
+using System.Security.Claims;
+using eTicketShop.Data.Cart;
 
 namespace eTicketShop.Controllers
 {
     public class OrdersController : Controller
     {
         private readonly TicketShopDB2Context _context;
+        private readonly ShoppingCart _shoppingCart;
+        private readonly EventsController _event;
+        private readonly OrdersController _order;
+        private readonly string paymentCode;
+        private readonly DateTime paidDateTime;
+        private readonly decimal totalPrice;
 
         public OrdersController(TicketShopDB2Context context)
         {
@@ -152,7 +161,58 @@ namespace eTicketShop.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+       
+        public async Task StoreOrderAsync(List<ShoppingCartItem> items, string userId, 
+            decimal totalPrice, string paymentCode, DateTime paidDateTime)
+        {
+            var order = new Order()
+            {
+                UserId = userId,
+                TotalPrice = totalPrice,
+                PaymentCode = paymentCode,
+                PaidDateTime = paidDateTime
 
+            };
+            await _context.Orders.AddAsync(order);
+            await _context.SaveChangesAsync();
+
+            foreach (var item in items)
+            {
+                var orderItem = new OrderItem()
+                {
+                    EventId = item.Event.Id,
+                    OrderId = order.Id,
+                    Price = item.Event.Price,
+                    Qty = item.Amount,
+                };
+                await _context.OrderItems.AddAsync(orderItem);
+            }
+            await _context.SaveChangesAsync();
+        }
+        
+
+        public async Task<IActionResult> RemoveItemFromShoppingCart(int id)
+        {
+            var item = await _event.GetEventByIdAsync(id);
+
+            if (item != null)
+            {
+                _shoppingCart.RemoveItemFromCart(item);
+            }
+            return RedirectToAction(nameof(ShoppingCart));
+        }
+
+        public async Task<IActionResult> CompleteOrder()
+        {
+            var items = _shoppingCart.GetShoppingCartItem();
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+
+            await _order.StoreOrderAsync(items, userId, totalPrice, paymentCode, paidDateTime);
+            await _shoppingCart.ClearShoppingCartAsync();
+
+            return View("OrderCompleted");
+        }
         private bool OrderExists(int id)
         {
           return _context.Orders.Any(e => e.Id == id);

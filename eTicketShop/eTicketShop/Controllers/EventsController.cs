@@ -181,7 +181,15 @@ namespace eTicketShop.Controllers
         {
           return _context.Events.Any(e => e.Id == id);
         }
+        public async Task<Event> GetEventByIdAsync(int id)
+        {
+            var eventDetails = await _context.Events
+                //.Include(c => c.Category)
+    
+                .FirstOrDefaultAsync(n => n.Id == id);
 
+            return eventDetails;
+        }
         public async Task<IActionResult> Index(string categorySlug = "", int p = 1)
         {
             int pageSize = 3;

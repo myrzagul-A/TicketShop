@@ -21,7 +21,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Services\" />
     <Folder Include="wwwroot\media\events\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Views\Shared\Components\ShoppingCartSummary\Default.cshtml" />
   </ItemGroup>
 
 </Project>

@@ -4,8 +4,11 @@ using eTicketShop.Areas.Identity.Data;
 using eTicketShop.Core;
 using eTicketShop.Core.Repositories;
 using eTicketShop.Repositories;
+using eTicketShop.Interface;
 using System.Net;
 using eTicketShop.Data.Cart;
+using eTicketShop.Data.Base;
+using eTicketShop.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("TicketShopDB2ContextConnection") ?? throw new InvalidOperationException("Connection string 'TicketShopDB2ContextConnection' not found.");
@@ -55,7 +58,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Events}/{action=Index}/{id?}");
 app.MapRazorPages();
 app.Run();
 
@@ -77,6 +80,7 @@ void AddScoped()
 {
     builder.Services.AddScoped<IUserRepository, UserRepository>();
     builder.Services.AddScoped<IRoleRepository, RoleRepository>();
+    builder.Services.AddScoped<IEvent, EventService> ();
     builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
     builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));

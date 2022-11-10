@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using eTicketShop.Data.Base;
+using System.ComponentModel.DataAnnotations;
 
 namespace eTicketShop.Models
 {
-    public class Event
+    public class Event : IEntityBase
     {
         public int Id { get; set; }
 
@@ -17,7 +18,7 @@ namespace eTicketShop.Models
 
         [Required]
         [Range(0.00, Double.MaxValue, ErrorMessage = "Price must be greater than 0")]
-        public double Price { get; set; }
+        public decimal Price { get; set; }
 
         [Required]
         [StringLength(100)]
