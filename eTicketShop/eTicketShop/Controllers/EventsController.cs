@@ -216,7 +216,7 @@ namespace eTicketShop.Controllers
         }
         public async Task<IActionResult> Index(string categorySlug = "", int p = 1)
         {
-            int pageSize = 3;
+            int pageSize = 6;
             ViewBag.PageNumber = p;
             ViewBag.PageRange = pageSize;
             ViewBag.CategorySlug = categorySlug;
