@@ -15,6 +15,7 @@ public class TicketShopDB2Context : IdentityDbContext<User>
        
     }
     public DbSet<CartItem> CartItems { get; set; }
+    public DbSet<ShoppingCartItem> ShoppingCartItem { get; set; }
     public DbSet<Category> Categories { get; set; }
     public DbSet<Event> Events { get; set; }
     public DbSet<Order> Orders { get; set; }

@@ -17,7 +17,7 @@ namespace eTicketShop.Models
 
         [Required]
         [Range(0.00, Double.MaxValue, ErrorMessage = "Price must be greater than 0")]
-        public decimal Price { get; set; }
+        public double Price { get; set; }
 
         [Required]
         [StringLength(100)]

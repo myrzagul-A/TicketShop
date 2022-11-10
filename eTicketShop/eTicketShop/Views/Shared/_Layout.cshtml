@@ -86,6 +86,10 @@
                 </div>
             </div>
         </main>
+
+        <ul class="navbar-nav">
+            @await Component.InvokeAsync("ShoppingCartSummary")
+        </ul>
     </div>
 
     <footer class="border-top footer text-muted">

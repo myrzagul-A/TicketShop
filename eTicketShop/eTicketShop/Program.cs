@@ -5,6 +5,7 @@ using eTicketShop.Core;
 using eTicketShop.Core.Repositories;
 using eTicketShop.Repositories;
 using System.Net;
+using eTicketShop.Data.Cart;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("TicketShopDB2ContextConnection") ?? throw new InvalidOperationException("Connection string 'TicketShopDB2ContextConnection' not found.");
@@ -40,6 +41,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseSession();
 app.UseAuthentication();;
 
 app.UseAuthorization();
@@ -76,4 +78,9 @@ void AddScoped()
     builder.Services.AddScoped<IUserRepository, UserRepository>();
     builder.Services.AddScoped<IRoleRepository, RoleRepository>();
     builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+    builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));
+    builder.Services.AddMemoryCache();
+    builder.Services.AddSession();
+    builder.Services.AddControllersWithViews();
 }
