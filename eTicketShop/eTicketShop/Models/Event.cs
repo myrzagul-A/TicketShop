@@ -1,5 +1,6 @@
 ﻿using eTicketShop.Data.Base;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace eTicketShop.Models
 {
@@ -30,6 +31,9 @@ namespace eTicketShop.Models
         [StringLength(250)]
         public string? ImageUrl { get; set; }
         public byte[]? Image { get; set; }
+
+        [NotMapped]
+        public IFormFile File { get; set; }
 
         public Category? Category { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }

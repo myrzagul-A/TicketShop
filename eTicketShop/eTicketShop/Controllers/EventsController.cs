@@ -7,16 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using eTicketShop.Areas.Identity.Data;
 using eTicketShop.Models;
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Blob;
+using Azure;
 
 namespace eTicketShop.Controllers
 {
     public class EventsController : Controller
     {
         private readonly TicketShopDB2Context _context;
+        private IWebHostEnvironment _environment;
+        private readonly IConfiguration _configuration;
 
-        public EventsController(TicketShopDB2Context context)
+        public EventsController(TicketShopDB2Context context, IWebHostEnvironment environment, IConfiguration configuration)
         {
             _context = context;
+            _environment = environment;
+            _configuration = configuration;
         }
 
         // GET: Events
@@ -74,22 +81,75 @@ namespace eTicketShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl, Image")] Event @event, List<IFormFile> Image)
+        public async Task<IActionResult> Create([Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl,Image,File")] Event @event)
         {
-            foreach (var item in Image)
-            {
-                if (item.Length > 0)
-                {
-                    using (var stream = new MemoryStream())
-                    {
-                        await item.CopyToAsync(stream);
-                        @event.Image = stream.ToArray();
-                    }
-                }
-            }
+           // List<IFormFile> Image
+            //foreach (var item in Image)
+            //{
+            //    if (item.Length > 0)
+            //    {
+            //        using (var stream = new MemoryStream())
+            //        {
+            //            await item.CopyToAsync(stream);
+            //            @event.Image = stream.ToArray();
+            //        }
+            //    }
+            //}
 
             if (ModelState.IsValid)
             {
+
+                if (@event.File != null)
+                {
+
+                    string _postedFileName = @event.File.FileName;
+                    string _fileContentType = @event.File.ContentType;
+                    string _actionMessage = " ";
+
+
+                    try
+                    {
+
+
+                        string blobstorageconnection = _configuration.GetSection("AzureStorage")["ConnectionString"];
+                        string containerName = _configuration.GetSection("AzureStorage")["ContainerName"];
+
+                        // get storage account obect using connection string
+                        CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(blobstorageconnection);
+
+                        // create the blob client
+                        CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
+
+
+                        //  get container reference.
+                        CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+                        // get the blob reference you want to work with    
+                        CloudBlockBlob blockBlob = container.GetBlockBlobReference(_postedFileName);
+
+                        //assuming we upload only image from here, else find dynamically 
+                        blockBlob.Properties.ContentType = _fileContentType; //"image/jpeg";
+
+
+                        using (var data = @event.File.OpenReadStream())
+                        {
+                            await blockBlob.UploadFromStreamAsync(data);
+                        }
+
+                         _actionMessage = "Uploaded Successfully to Blob Storage";
+                    }
+                    catch (RequestFailedException ex)
+                    {
+                         _actionMessage = ex.ToString();
+                    }
+
+                    string imageUrl = Path.Combine("https://eventstorageaccount01.blob.core.windows.net/eventstoragecontainer01329034bd-cf04-40e4-afb3-58a2e1738834/", _postedFileName);
+
+                    @event.ImageUrl = imageUrl;
+                }
+
+
+
                 _context.Add(@event);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -120,27 +180,76 @@ namespace eTicketShop.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl, Image")] Event @event, List<IFormFile> Image)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CategoryId,Name,StartDate,Price,Address,Description,ImageUrl, Image,File")] Event @event)
+            // List<IFormFile> Image
         {
             if (id != @event.Id)
             {
                 return NotFound();
             }
 
-            foreach (var item in Image)
-            {
-                if (item.Length > 0)
-                {
-                    using (var stream = new MemoryStream())
-                    {
-                        await item.CopyToAsync(stream);
-                        @event.Image = stream.ToArray();
-                    }
-                }
-            }
+            //foreach (var item in Image)
+            //{
+            //    if (item.Length > 0)
+            //    {
+            //        using (var stream = new MemoryStream())
+            //        {
+            //            await item.CopyToAsync(stream);
+            //            @event.Image = stream.ToArray();
+            //        }
+            //    }
+            //}
 
             if (ModelState.IsValid)
             {
+                if (@event.File != null)
+                {
+
+                    string _postedFileName = @event.File.FileName;
+                    string _fileContentType = @event.File.ContentType;
+                    string _actionMessage = " ";
+
+
+                    try
+                    {
+
+                        string blobstorageconnection = _configuration.GetSection("AzureStorage")["ConnectionString"];
+                        string containerName = _configuration.GetSection("AzureStorage")["ContainerName"];
+
+                        // get storage account obect using connection string
+                        CloudStorageAccount cloudStorageAccount = CloudStorageAccount.Parse(blobstorageconnection);
+
+                        // create the blob client
+                        CloudBlobClient blobClient = cloudStorageAccount.CreateCloudBlobClient();
+
+
+                        //  get container reference.
+                        CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+                        // get the blob reference you want to work with    
+                        CloudBlockBlob blockBlob = container.GetBlockBlobReference(_postedFileName);
+
+                        //assuming we upload only image from here, else find dynamically 
+                        blockBlob.Properties.ContentType = _fileContentType; //"image/jpeg";
+
+
+                        using (var data = @event.File.OpenReadStream())
+                        {
+                            await blockBlob.UploadFromStreamAsync(data);
+                        }
+
+                        _actionMessage = "Uploaded Successfully to Blob Storage";
+                    }
+                    catch (RequestFailedException ex)
+                    {
+                        _actionMessage = ex.ToString();
+                    }
+
+                    string imageUrl = Path.Combine("https://eventstorageaccount01.blob.core.windows.net/eventstoragecontainer01329034bd-cf04-40e4-afb3-58a2e1738834/", _postedFileName);
+
+                    @event.ImageUrl = imageUrl;
+                }
+
                 try
                 {
                     _context.Update(@event);
