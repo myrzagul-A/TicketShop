@@ -5,16 +5,17 @@ using eTicketShop.Core;
 using eTicketShop.Core.Repositories;
 using eTicketShop.Repositories;
 using eTicketShop.Interface;
-using System.Net;
 using eTicketShop.Data.Cart;
-using eTicketShop.Data.Base;
-using eTicketShop.Interface;
+
+
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("TicketShopDB2ContextConnection") ?? throw new InvalidOperationException("Connection string 'TicketShopDB2ContextConnection' not found.");
 
 builder.Services.AddDbContext<TicketShopDB2Context>(options =>
     options.UseSqlServer(connectionString));
+
+AddScoped();
 
 builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
     .AddRoles<IdentityRole>()
@@ -23,13 +24,13 @@ builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfi
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+
+
 #region Authorization
 
 AddAuthorizationPolicies();
 
 #endregion
-
-AddScoped();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -81,6 +82,7 @@ void AddScoped()
     builder.Services.AddScoped<IUserRepository, UserRepository>();
     builder.Services.AddScoped<IRoleRepository, RoleRepository>();
     builder.Services.AddScoped<IEvent, EventService> ();
+    builder.Services.AddScoped<IOrder, OrdersService>();
     builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
     builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     builder.Services.AddScoped(sc => ShoppingCart.GetShoppingCart(sc));

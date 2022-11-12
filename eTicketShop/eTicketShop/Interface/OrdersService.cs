@@ -28,14 +28,16 @@ namespace eTicketShop.Interface
             return orders;
         }
 
-        public async Task StoreOrderAsync(List<ShoppingCartItem> items, string userId, 
-            decimal TotalPrice, DateTime PaidDateTime)
+        public async Task StoreOrderAsync(List<ShoppingCartItem> items, string userId, decimal totalPrice, string? paymentCode, DateTime paidDateTime
+            )
+            
         {
             var order = new Order()
             {
                 UserId = userId,
-                TotalPrice = TotalPrice,
-                PaidDateTime = PaidDateTime
+                TotalPrice = items.Sum(x=>x.Amount* x.Event.Price),
+                PaymentCode = "paycode01",
+                PaidDateTime = DateTime.Now,
             };
             await _context.Orders.AddAsync(order);
             await _context.SaveChangesAsync();
