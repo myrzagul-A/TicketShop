@@ -33,7 +33,7 @@ namespace eTicketShop.Models
         public byte[]? Image { get; set; }
 
         [NotMapped]
-        public IFormFile File { get; set; }
+        public IFormFile? File { get; set; }
 
         public Category? Category { get; set; }
         public ICollection<CartItem>? CartItems { get; set; }
