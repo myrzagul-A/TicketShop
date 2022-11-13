@@ -15,7 +15,7 @@ namespace eTicketShop.Models
 
         public int Qty { get; set; }
 
-        public Event Event { get; set; }
-        public Order Order { get; set; }
+        public Event? Event { get; set; }
+        public Order? Order { get; set; }
     }
 }

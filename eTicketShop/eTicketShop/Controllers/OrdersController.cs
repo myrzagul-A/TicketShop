@@ -46,7 +46,9 @@ namespace eTicketShop.Controllers
         }
         public async Task<IActionResult> AllOrders()
         {
-            return View(await _context.Orders.Include(n => n.User).ToListAsync ());
+            var orders = await _context.Orders.Include(n => n.OrderItems).ThenInclude(n => n.Event).Include(n => n.User).ToListAsync();
+            return View(orders);
+            //return View(await _context.Orders.Include(n => n.User).ToListAsync ());
         }
         public IActionResult ShoppingCart()
         {
@@ -63,22 +65,22 @@ namespace eTicketShop.Controllers
         }
 
         //// GET: Orders/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null || _context.Orders == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null || _context.Orders == null)
+            {
+                return NotFound();
+            }
 
-        //    var order = await _context.Orders
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (order == null)
-        //    {
-        //        return NotFound();
-        //    }
+            var orderitems = await _context.OrderItems
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (orderitems == null)
+            {
+                return NotFound();
+            }
 
-        //    return View(order);
-        //}
+            return View(orderitems);
+        }
 
         // GET: Orders/Create
         //public IActionResult Create()
@@ -185,7 +187,7 @@ namespace eTicketShop.Controllers
         //    {
         //        _context.Orders.Remove(order);
         //    }
-            
+
         //    await _context.SaveChangesAsync();
         //    return RedirectToAction(nameof(Index));
         //}

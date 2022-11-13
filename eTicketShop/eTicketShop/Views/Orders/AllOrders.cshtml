@@ -1,5 +1,4 @@
-﻿@model IEnumerable<eTicketShop.Models.Order>
-
+﻿@model List<Order>
 @{
     ViewData["Title"] = "All Orders";
 }
@@ -11,39 +10,37 @@
 </p>
 <table class="table">
     <thead>
+
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.User)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.TotalPrice)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.PaymentCode)
-            </th>*@
-            <th>
-                @Html.DisplayNameFor(model => model.PaidDateTime)
-            </th>
-            <th></th>
+            <th>User</th>
+            <th>Qty /Price/ Event </th>
+         
+            <th>Total Price</th>
+            <th>Paid Date</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.User.FullName)
+
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td class="align-middle">@order.User.FullName</td>
+                <td class="align-middle">
+                    <ul style="list-style-type:none">
+                       @foreach (var item in order.OrderItems)
+                        {
+                            <li>
+                                
+                                    <span class="badge bg-success">@item.Qty</span> @item.Price.ToString("c")  - @item.Event.Name
+                            
+                            </li>
+                        }
+
+                    </ul>
                 </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
-            </td>
-           @* <td>
-                @Html.DisplayFor(modelItem => item.PaymentCode)
-            </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.PaidDateTime)
-            </td>
-          
-        </tr>
-}
+                <td class="align-middle">@order.TotalPrice</td>
+                <td class="align-middle">@order.PaidDateTime</td>
+            </tr>
+        }
     </tbody>
 </table>

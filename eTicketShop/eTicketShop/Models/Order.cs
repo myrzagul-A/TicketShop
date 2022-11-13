@@ -7,6 +7,7 @@ namespace eTicketShop.Models
 {
     public class Order
     {
+
         public int Id { get; set; }
         
         public string UserId { get; set; }
@@ -22,7 +23,7 @@ namespace eTicketShop.Models
         public DateTime PaidDateTime { get; set; }
 
 
-
-        public virtual ICollection<OrderItem> OrderItems { get; set; }
+        public List<OrderItem> OrderItems { get; set; }
+        //public virtual ICollection<OrderItem> OrderItems { get; set; }
     }
 }
