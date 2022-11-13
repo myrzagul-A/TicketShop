@@ -22,7 +22,7 @@
     <header>
         <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Event" asp-action="Index">eTicketShop</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Events" asp-action="Index"> <img src="/media/TicketShop_9.png" class="img-fluid" alt="Logo"  width="200" /></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -96,10 +96,11 @@
             </div>
         </main>
 
-        <ul class="navbar-nav">
+ @*       <ul class="navbar-nav">
             @await Component.InvokeAsync("ShoppingCartSummary")
         </ul>
-    </div>
+*@   
+</div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
@@ -110,7 +111,9 @@
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
+    <script src="https://cdn.tiny.cloud/1/u5sgow6bh6k9b4lt0kmnxjwdv7a2zl8b3f4xnby04zn8re3s/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    @*<script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>*@
     <script>
         tinymce.init({
             selector: '#mytextarea'

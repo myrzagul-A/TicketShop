@@ -1,21 +1,27 @@
 ﻿@model IEnumerable<eTicketShop.Models.Event>
 
 
+
+
 @{
     ViewData["Title"] = "Events";
 }
 
 <h1>Events</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+  @if (User.IsInRole("Administrator"))
+   {
+            <p>
+                <a asp-action="Create">Create New</a>
+            </p>
+   }
+
 <div class="row">
     @foreach (var item in Model)
     {
-
-        <div class="card text-white bg-primary mb-3 mx-1" style="max-width: 20rem;">
-            <div class="card-header"><h4 class="card-title">@item.Name</h4></div>
+      
+        <div class="card text-white bg-primary mb-3 m-3" style="max-width: 18rem;">
+            <div class="card-header"><h4 class="card-title text-center">@item.Name</h4></div>
             <div class="card-body">
                 @*<h4 class="card-title">@item.Name</h4>*@
                 <p class="card-text">
@@ -35,29 +41,41 @@
                         }
                     }
                     @*<img src="/media/events/@item.ImageUrl" class="img-fluid" alt="" />*@
-                    @*<h4>@item.Name</h4>*@
+
+
+                    @*@Html.Raw(item.Description)*@
 
     
-
-                  
+                                      
                         <div>
-                            @Html.Raw(item.StartDate)
+                            @Html.Raw(item.StartDate.ToString("dddd, dd MMMM yyyy"))
                         </div>
-                        <p>
+                        <div>
+                            @Html.Raw(item.StartDate.ToString("h:mm tt"))
+                        </div>
+                        <p class="py-2">
                                 @item.Price.ToString("C2")
                         </p>
+
+                    @if (User.IsInRole("User"))
+                    {
                         <p>
                             <a class="btn btn-secondary" asp-controller="CartItems" asp-action="AddItemToShoppingCart" asp-route-id="@item.Id">Add to cart</a>
                         </p>
-                   
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    }
+
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> 
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
              
             </p>
             </div>
         </div>
-
 
 
 
