@@ -44,7 +44,10 @@ namespace eTicketShop.Controllers
             var orders = await _order.GetOrdersByUserIdAndRoleAsync(userId, userRole);
             return View(orders);
         }
-
+        public async Task<IActionResult> AllOrders()
+        {
+            return View(await _context.Orders.Include(n => n.User).ToListAsync ());
+        }
         public IActionResult ShoppingCart()
         {
            var items = _shoppingCart.GetShoppingCartItem();
