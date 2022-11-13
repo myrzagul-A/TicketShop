@@ -16,7 +16,7 @@ namespace eTicketShop.Data.Cart
         public TicketShopDB2Context _context { get; set; }
 
         public string ShoppingCartId { get; set; }
-        public List<ShoppingCartItem>? ShoppingCartItem { get; set; }
+        public List<ShoppingCartItem> ShoppingCartItem { get; set; }
 
         public ShoppingCart(TicketShopDB2Context context)
         {
@@ -25,7 +25,7 @@ namespace eTicketShop.Data.Cart
 
         public static ShoppingCart GetShoppingCart(IServiceProvider services)
         {
-            ISession? session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+            ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
             var context = services.GetService<TicketShopDB2Context>();
 
             string cartId = session.GetString("CartId") ?? Guid.NewGuid().ToString();
@@ -36,20 +36,23 @@ namespace eTicketShop.Data.Cart
 
         public void AddItemToCart(Event event1)
         {
-            // var shoppingCartItem = _context.ShoppingCartItem.FirstOrDefault(n => n.Event.Id == @event.Id && n.ShoppingCartId == ShoppingCartId);
+             var shoppingCartItem = _context.ShoppingCartItem.FirstOrDefault(n => n.Event.Id == event1.Id && n.ShoppingCartId == ShoppingCartId);
 
-            //if (shoppingCartItem == null)
-            //{
-            _context.ShoppingCartItem.Add( new ShoppingCartItem
+            if (shoppingCartItem == null)
+            {
+                shoppingCartItem = new ShoppingCartItem()
 
                 {
                     ShoppingCartId = ShoppingCartId,
                     Event = event1,
                     Amount = 1
-                });
-
-               
-            _context.SaveChanges();
+                };
+        _context.ShoppingCartItem.Add(shoppingCartItem);
+            } else
+            {
+                shoppingCartItem.Amount++;
+            }
+_context.SaveChanges();
         }
 
         public void RemoveItemFromCart(Event event1)

@@ -38,7 +38,11 @@ namespace eTicketShop.Controllers
         // GET: Orders
         public async Task<IActionResult> Index()
         {
-              return View(await _context.Orders.ToListAsync());
+            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            string userRole = User.FindFirstValue(ClaimTypes.Role);
+
+            var orders = await _order.GetOrdersByUserIdAndRoleAsync(userId, userRole);
+            return View(orders);
         }
 
         public IActionResult ShoppingCart()
