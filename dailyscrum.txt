@@ -160,9 +160,10 @@ understanding how to link frontend and backend for images
 2022/11/07 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+    continue CRUD categories/events
 2. To do until next Scrum:
-    
+	get Events by categories
+	add tickets to the cart
 3. Need assistance / figure things out
 
 
@@ -189,10 +190,13 @@ understanding how to link frontend and backend for images
 2022/11/08 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+	get Events by categories
+    CRUD categories/events
 2. To do until next Scrum:
-    
+    add tickets to the cart
+    starting with styling	
 3. Need assistance / figure things out
+	add userId to the cart
 
 
 2022/11/08 Myrzagul
@@ -217,9 +221,10 @@ understanding how to link frontend and backend for images
 2022/11/09 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+    continue styling / bootstrap
 2. To do until next Scrum:
-    
+    integrate rich text editor for description
+	continue styling / bootstrap
 3. Need assistance / figure things out
 
 
@@ -247,9 +252,11 @@ understanding how to link frontend and backend for images
 2022/11/10 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+    continue styling / bootstrap
+	integrated rich text editor for description
 2. To do until next Scrum:
-    
+    get content witout html tags from rich text editor
+	continue styling / bootstrap
 3. Need assistance / figure things out
 
 
@@ -277,9 +284,12 @@ understanding how to link frontend and backend for images
 2022/11/12 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+    continue styling / bootstrap
+    got content witout html tags from rich text editor
 2. To do until next Scrum:
-    
+    deploy project from Github to Azure
+	fix  rich text editor for the deployed project
+	fix user / admin / manager access to the events/cart/orders
 3. Need assistance / figure things out
 
 
@@ -308,9 +318,11 @@ understanding how to link frontend and backend for images
 2022/11/13 Oxana
 ===================
 1. Done / not done since last scrum:
-    
+	fixed user / admin / manager access to the events
+	fixed  rich text editor for the deployed project
+	deployed project from Github to Azure
 2. To do until next Scrum:
-    
+    prepare presentation
 3. Need assistance / figure things out
 
 
