@@ -146,33 +146,6 @@ researched about azure storage account
 understanding how to link frontend and backend for images
 
 
-2022/11/06 Liutsiia
-===================
-1. Done / not done since last scrum:
-    
-2. To do until next Scrum:
-    
-3. Need assistance / figure things out
-   
-
-2022/11/06 Oxana
-===================
-1. Done / not done since last scrum:
-    
-2. To do until next Scrum:
-    
-3. Need assistance / figure things out
-
-
-2022/11/06 Myrzagul
-===================
-1. Done / not done since last scrum:
-    
-2. To do until next Scrum:
-    
-3. Need assistance / figure things out
-
-
 2022/11/07 Liutsiia
 ===================
 1. Done / not done since last scrum:
@@ -250,10 +223,11 @@ understanding how to link frontend and backend for images
 2022/11/09 Myrzagul
 ===================
 1. Done / not done since last scrum:
-    
+   Found a different way to upload images to blob   
 2. To do until next Scrum:
-    
+   Try uploading an image to blob with a test project  
 3. Need assistance / figure things out
+   Fixing a bug not allowing to upload an image	
 
 
 2022/11/10 Liutsiia
@@ -277,8 +251,70 @@ understanding how to link frontend and backend for images
 2022/11/10 Myrzagul
 ===================
 1. Done / not done since last scrum:
+   Fixed the bug with uploading images 
+2. To do until next Scrum:
+   Record the image url to database 
+   Display images on the homepage 
+3. Need assistance / figure things out
+   Fix the bug not allowing to display the images
+
+
+2022/11/12 Liutsiia
+===================
+1. Done / not done since last scrum:
     
 2. To do until next Scrum:
     
 3. Need assistance / figure things out
+   
+
+2022/11/12 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/12 Myrzagul
+===================
+1. Done / not done since last scrum:
+   Fixed the bug with displaying images 
+   Look for tutorials to integrate Stripe
+2. To do until next Scrum:
+   Make payments possible with Stripe
+   Trying integrating Stripe to a testing project
+3. Need assistance / figure things out
+   integrating Stripe
+
+
+2022/11/13 Liutsiia
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+   
+
+2022/11/13 Oxana
+===================
+1. Done / not done since last scrum:
+    
+2. To do until next Scrum:
+    
+3. Need assistance / figure things out
+
+
+2022/11/13 Myrzagul
+===================
+1. Done / not done since last scrum:
+   Tried integrating PayPal and created PayPal account
+   Deployed the app on azure through github
+2. To do until next Scrum:
+   Try integrating PayPal to the fullest 
+3. Need assistance / figure things out
+   Viewing payments on the business dashboard
+
 
