@@ -120,11 +120,13 @@ Each member writes down answers to 3 questions in the following format:
 2022/11/05 Liutsiia
 ===================
 1. Done / not done since last scrum:
+   registratio/login/logout
+    working on roles
     
 2. To do until next Scrum:
-    
+    search bar
 3. Need assistance / figure things out
-   
+   search bar
 
 2022/11/05 Oxana
 ===================
@@ -149,11 +151,11 @@ understanding how to link frontend and backend for images
 2022/11/07 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+    search bar
 2. To do until next Scrum:
-    
+    manegment panel
 3. Need assistance / figure things out
-   
+   cart
 
 2022/11/07 Oxana
 ===================
@@ -177,11 +179,12 @@ understanding how to link frontend and backend for images
 2022/11/08 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+    added manegment item in navbar
+    added event Crud
 2. To do until next Scrum:
-    
+    Crud Category
 3. Need assistance / figure things out
-   
+   Joining tables
 
 2022/11/08 Oxana
 ===================
@@ -205,11 +208,11 @@ understanding how to link frontend and backend for images
 2022/11/09 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+    Crud category
 2. To do until next Scrum:
-    
+    create cart
 3. Need assistance / figure things out
-   
+   increase descrease items in cart
 
 2022/11/09 Oxana
 ===================
@@ -233,11 +236,13 @@ understanding how to link frontend and backend for images
 2022/11/10 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+   create cart
+   added items in cart
 2. To do until next Scrum:
-    
+    increase/ descrease items in cart
+    users orders
 3. Need assistance / figure things out
-   
+   all orders/ joing 3 tables
 
 2022/11/10 Oxana
 ===================
@@ -262,11 +267,12 @@ understanding how to link frontend and backend for images
 2022/11/12 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+    increase/ descrease items in cart
+    users orders
 2. To do until next Scrum:
-    
+    All orders
 3. Need assistance / figure things out
-   
+   find how implement default role
 
 2022/11/12 Oxana
 ===================
@@ -292,11 +298,12 @@ understanding how to link frontend and backend for images
 2022/11/13 Liutsiia
 ===================
 1. Done / not done since last scrum:
-    
+    all orders
+    default roles
 2. To do until next Scrum:
-    
+    Polish the site
 3. Need assistance / figure things out
-   
+   hosting
 
 2022/11/13 Oxana
 ===================
