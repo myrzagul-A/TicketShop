@@ -61,11 +61,11 @@
             @{
                 if (Model.ImageUrl != null)
                 {
-                    <img src="@Model.ImageUrl" class="img-fluid align-middle" />
+                        <img src="@Model.ImageUrl" class="img-fluid align-middle" />
                 }
                 else
                 {
-                    <img src='' style="max-width:100px; max-height:100px;" />
+                        <img src='' style="max-width:100px; max-height:100px;" />
                 }
 
                 //if (Model.Image != null)
@@ -89,6 +89,9 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    @if(User.IsInRole("Manager"))
+    {
+        <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> 
+    }
     <a asp-action="Index">Back to List</a>
 </div>
