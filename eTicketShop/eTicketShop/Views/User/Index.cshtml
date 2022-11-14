@@ -10,10 +10,10 @@
     <h1 class="display-4">Users</h1>
     @if ( @Model != null && @Model.Any())
     {
-        <table class="table">
+        <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col">#</th>
+                @*<th scope="col">#</th>*@
                 <th scope="col">Full Name</th>
                 <th scope="col">Phone Number</th>
                 <th scope="col">Email</th>
@@ -23,8 +23,8 @@
             <tbody>
             @foreach (var user in Model)
             {
-            <tr>
-                <th scope="row">@user.Id</th>
+                    <tr class="table-light">
+                @*<th scope="row">@user.Id</th>*@
                 <td>@user.FullName</td>
                 <td>@user.PhoneNumber</td>
                 <td>@user.Email</td>
